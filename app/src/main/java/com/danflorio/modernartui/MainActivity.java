@@ -13,6 +13,7 @@ import android.widget.SeekBar;
 public class MainActivity extends ActionBarActivity {
 
     private RelativeLayout artContainer;
+    private static final String TAG = "appInfo";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,10 +71,15 @@ public class MainActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.more_information) {
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void showDialog ( MenuItem item ) {
+
+        new MoreInformation().show( getFragmentManager(), TAG );
     }
 }
